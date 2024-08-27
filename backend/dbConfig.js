@@ -3,6 +3,6 @@ module.exports={
   host: "localhost",
   database: "receipe",
   password: "root",
-  port: 5432,
+  port: 5433,
 };
 

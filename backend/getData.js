@@ -17,7 +17,7 @@ async function getRecipes() {
 
 const getRecipeById = async (id) => {
   try {
-    const result = await pool.query('SELECT * FROM recipes WHERE id = $1', [id]);
+    const result = await pool.query('SELECT * FROM receipes WHERE id = $1', [id]);
     return result.rows[0]; // Return the single row for the given ID
   } catch (err) {
     console.error('Error fetching data from database:', err.stack);
