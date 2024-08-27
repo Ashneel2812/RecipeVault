@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from './logo.png'; // Relative path to the image
 
 
 export const Navigation = () => {
@@ -21,14 +22,17 @@ export const Navigation = () => {
     color: '#000', // Text color for nav links
     padding: '10px 15px', // Padding around text
     textDecoration: 'none', // Remove underline from links
+    fontSize : '18px'
+    
   };
 
   return (
     <nav id="menu" className="navbar navbar-expand-lg navbar-light" style={navStyles}>
       <div className="container">
-        <a className="navbar-brand" href="#page-top" style={{ color: '#000', padding: '10px 15px' }}>
+        {/* <a className="navbar-brand" href="#page-top" style={{ color: '#000', padding: '10px 15px' }}>
           My Project
-        </a>
+        </a> */}
+        {/* <img className="navbar-brand" src={logo} alt="logo" style={{width:"250px"}}/> */}
         <button
           className="navbar-toggler"
           type="button"

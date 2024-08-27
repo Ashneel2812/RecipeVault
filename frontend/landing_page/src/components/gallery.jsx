@@ -5,7 +5,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from 'react-router-dom';
 
-
 export const Gallery = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -54,9 +53,18 @@ export const Gallery = () => {
   const cardStyle = {
     width: '100%', // Full width of the column
     maxWidth: '18rem', // Limit the maximum width of the card
+    margin: '0 auto', // Center the card within the column
+  };
+
+  const cardImgStyle = {
+    height: '12rem', // Set a fixed height for the image
+    objectFit: 'cover', // Ensure the image covers the area without distortion
   };
 
   const colStyle = {
+    display: 'flex', // Use flexbox to align items
+    justifyContent: 'center', // Center the card horizontally within the column
+    alignItems: 'center', // Center the card vertically within the column
     flex: '1 1 calc(33.333% - 30px)', // Adjust width based on available space and gap
     maxWidth: 'calc(33.333% - 30px)', // Ensure columns do not exceed this width
     marginBottom: '15px', // Space below the column
@@ -74,7 +82,7 @@ export const Gallery = () => {
             data.map(recipe => (
               <div className="col-md-4" key={recipe.id} style={colStyle}>
                 <Card style={cardStyle}>
-                  <Card.Img variant="top" src={recipe.picture} />
+                  <Card.Img variant="top" src={recipe.picture} style={cardImgStyle} />
                   <Card.Body>
                     <Card.Title>{recipe.title}</Card.Title>
                     <Card.Text>
@@ -86,13 +94,12 @@ export const Gallery = () => {
                     </Card.Text>
                   </Card.Body>
                   <ListGroup className="list-group-flush">
-                    <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                    {Object.values(recipe.adv).map((adv, index) => (
+                      <ListGroup.Item key={index}>{adv}</ListGroup.Item>
+                    ))}
                   </ListGroup>
                   <Card.Body>
                     <Card.Link href={`/view/${recipe.id}`}>View</Card.Link>
-                    <Card.Link href="#edit">Edit</Card.Link>
                   </Card.Body>
                 </Card>
               </div>
@@ -105,4 +112,3 @@ export const Gallery = () => {
     </div>
   );
 };
-

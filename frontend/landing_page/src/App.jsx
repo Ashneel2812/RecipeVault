@@ -11,11 +11,11 @@ import { Contact } from "./components/contact";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
+import logo from './components/logo.png'; // Relative path to the image
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ViewRecipe from "./components/viewRecipe";
+import {ViewRecipe} from "./components/viewRecipe";
 import EditRecipe from "./components/editRecipe";
-
 
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
@@ -29,22 +29,36 @@ const App = () => {
     setLandingPageData(JsonData);
   }, []);
 
+  const handleLogoClick = () => {
+    const currentUrl = window.location.href;
+
+    const newUrl = currentUrl.replace(/\/view\/\d+/, '');
+
+    window.location.href = newUrl;
+  };
+
   return (
-    <div>
-      <Navigation />
-      <Header data={landingPageData.Header} />
-      <About data={landingPageData.About} />
-      <Services data={landingPageData.Services} />
-      <Gallery data={landingPageData.Gallery} />
-      <Testimonials data={landingPageData.Testimonials} />
-      <Team data={landingPageData.Team} />
-      <Contact data={landingPageData.Contact} />
-      {/* <Router>
-      <Routes>
-        <Route path="#about" element={<About data={landingPageData.About} />} />
-      </Routes>
-    </Router> */}
-    </div>
+    <Router>
+      <div>
+      <img className="navbar-brand" src={logo} alt="logo" style={{width:"250px",height:"75px",paddingRight:"0px"}} onClick={handleLogoClick}/>
+        
+        <Routes>
+          <Route path="/" element={
+            <>
+            <Navigation />
+              <Header data={landingPageData.Header} />
+              <About data={landingPageData.About} />
+              <Services data={landingPageData.Services} />
+              <Gallery data={landingPageData.Gallery} />
+              <Testimonials data={landingPageData.Testimonials} />
+              <Team data={landingPageData.Team} />
+              <Contact data={landingPageData.Contact} />
+            </>
+          } />
+          <Route path="/view/:id" element={<ViewRecipe />} />
+        </Routes>
+      </div>
+    </Router>
     
 
   );
