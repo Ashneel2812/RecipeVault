@@ -1,6 +1,18 @@
 {
     "version": 2,
-   
+    "builds": [
+        {
+          "src": "frontend/landing_page/package.json",
+          "use": "@vercel/static-build",
+          "config": {
+            "distDir": "frontend/landing_page"
+          }
+        },
+        {
+          "src": "backend/package.json",
+          "use": "@vercel/node"
+        }
+      ],
     "routes": [
       {
         "src": "/api/(.*)",
