@@ -9,8 +9,8 @@ const RecipeList = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        // const response = await fetch('http://localhost:3001/receipes');
-        const response = await fetch('/receipes');
+        const response = await fetch('http://localhost:3001/receipes');
+        // const response = await fetch('/receipes');
     
         // Check if the response is OK
         if (!response.ok) {

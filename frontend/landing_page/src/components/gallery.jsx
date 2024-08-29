@@ -14,8 +14,8 @@ export const Gallery = () => {
     const fetchData = async () => {
       try {
         // Fetch data from the backend
-        // const response = await axios.get('http://localhost:3001/receipes');
-        const response = await axios.get('/receipes');
+        const response = await axios.get('http://localhost:3001/receipes');
+        // const response = await axios.get('/receipes');
 
         // Check if response.data is an array
         if (Array.isArray(response.data)) {
