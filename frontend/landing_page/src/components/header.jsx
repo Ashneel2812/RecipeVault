@@ -12,7 +12,8 @@ export const Header = () => {
     const fetchData = async () => {
       try {
         // Fetch data from the backend
-        const response = await axios.get('http://localhost:3001/');
+        // const response = await axios.get('http://localhost:3001/');
+        const response = await axios.get('/');
         
         // Ensure response.data is an array
         if (Array.isArray(response.data)) {
