@@ -1,4 +1,4 @@
-const pool = require('./db'); // Adjust the path to your database connection file
+const pool = require('./api/db'); // Adjust the path to your database connection file
 
 // Example query to get all records from the 'recipes' table
 async function getRecipes() {

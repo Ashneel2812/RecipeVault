@@ -15,7 +15,7 @@ export const ViewRecipe = () => {
     const fetchRecipe = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/view/${id}`);
-        // const response = await axios.get(`/view/${id}`);
+        // const response = await axios.get(`/api/getRecipeById`, {params: { id }});
         setRecipe(response.data);
       } catch (error) {
         setError(error.message);

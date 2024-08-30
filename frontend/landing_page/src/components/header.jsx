@@ -13,7 +13,7 @@ export const Header = () => {
       try {
         // Fetch data from the backend
         const response = await axios.get('http://localhost:3001/');
-        // const response = await axios.get('/');
+        // const response = await axios.get('/api/getThreeRandomRecipes.js');
         
         // Ensure response.data is an array
         if (Array.isArray(response.data)) {

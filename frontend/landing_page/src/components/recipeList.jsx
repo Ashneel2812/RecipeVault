@@ -10,7 +10,7 @@ const RecipeList = () => {
     const fetchRecipes = async () => {
       try {
         const response = await fetch('http://localhost:3001/receipes');
-        // const response = await fetch('/receipes');
+        // const response = await fetch('/api/getRecipes');
     
         // Check if the response is OK
         if (!response.ok) {

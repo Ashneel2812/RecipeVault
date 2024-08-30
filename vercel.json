@@ -1,14 +1,26 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "/backend/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/frontend/landing_page/build/$1"
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/landing_page/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/landing_page/build"
       }
-    ]
-  }
-  
+    },
+    {
+      "src": "backend/api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/landing_page/$1"
+    }
+  ]
+}
