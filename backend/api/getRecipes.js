@@ -1,3 +1,4 @@
+
 const pool = require('./db');
 
 async function getRecipes() {
@@ -11,6 +12,9 @@ async function getRecipes() {
 }
 
 module.exports = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS'); // Allow GET and OPTIONS methods
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allow specific headers
   try {
     const recipes = await getRecipes();
     res.json(recipes);
