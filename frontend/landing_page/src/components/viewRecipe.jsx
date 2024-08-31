@@ -15,7 +15,7 @@ export const ViewRecipe = () => {
     const fetchRecipe = async () => {
       try {
         // const response = await axios.get(`http://localhost:3001/view/${id}`);
-        const response = await axios.get(`https://recipe-vault-backend-omega.vercel.app/api/getRecipeById/${id}`);
+        const response = await axios.get(`https://recipe-vault-backend-omega.vercel.app/api/getRecipeById?id=${id}`);
         setRecipe(response.data);
       } catch (error) {
         setError(error.message);
