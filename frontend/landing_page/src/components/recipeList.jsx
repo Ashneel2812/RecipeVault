@@ -9,8 +9,8 @@ const RecipeList = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch('http://localhost:3001/receipes');
-        // const response = await fetch('/api/getRecipes');
+        // const response = await fetch('http://localhost:3001/receipes');
+        const response = await fetch('https://recipe-vault-backend-omega.vercel.app/api/getRecipes');
     
         // Check if the response is OK
         if (!response.ok) {

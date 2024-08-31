@@ -14,8 +14,8 @@ export const ViewRecipe = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/view/${id}`);
-        // const response = await axios.get(`/api/getRecipeById`, {params: { id }});
+        // const response = await axios.get(`http://localhost:3001/view/${id}`);
+        const response = await axios.get(`https://recipe-vault-backend-omega.vercel.app/api/getRecipeById/${id}`);
         setRecipe(response.data);
       } catch (error) {
         setError(error.message);
