@@ -13,6 +13,8 @@ async function getThreeRandomRecipes() {
 module.exports = async (req, res) => {
   try {
     const threeRecipes = await getThreeRandomRecipes();
+    console.log(threeRecipes);
+    console.log("hi");
     res.json(threeRecipes);
   } catch (err) {
     console.error(err);
